@@ -10,15 +10,14 @@ const swaggerOptions = {
       description: 'Documentación de la API para mi aplicación Next.js',
     },
     servers: [
-        {
-          url: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000/api',
-        },
+      {
+        url: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000/api',
+      },
     ],
   },
-  apis: ['./pages/api/**/*.js'], 
+  apis: ['./pages/api/**/*.js'],
 };
 
-// Generar la especificación Swagger
-const swaggerSpec = swaggerJsdoc(swaggerOptions);
+const swaggerSpec = swaggerJsdoc(swaggerOptions)
 
-module.exports = { swaggerUi, swaggerSpec };
+module.exports = { swaggerUi, swaggerSpec }
