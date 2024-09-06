@@ -18,10 +18,6 @@ const swaggerOptions = {
   apis: ['./pages/api/**/*.js'],
 };
 
-<<<<<<< HEAD
 const swaggerSpec = swaggerJsdoc(swaggerOptions)
-=======
-const swaggerSpec = swaggerJsdoc(swaggerOptions);
->>>>>>> master
 
 module.exports = { swaggerUi, swaggerSpec }
