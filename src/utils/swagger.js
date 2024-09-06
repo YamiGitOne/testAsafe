@@ -18,7 +18,6 @@ const swaggerOptions = {
   apis: ['./pages/api/**/*.js'], 
 };
 
-// Generar la especificación Swagger
 const swaggerSpec = swaggerJsdoc(swaggerOptions);
 
 module.exports = { swaggerUi, swaggerSpec };
