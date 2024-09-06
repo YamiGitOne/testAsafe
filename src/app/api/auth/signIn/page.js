@@ -1,15 +1,18 @@
 import { getProviders } from 'next-auth/react'
-import SignInButton from '@/app/components/SignInButton'
 
 export default async function SignIn() {
   const providers = await getProviders()
-  const providersList = providers ? Object.values(providers) : []
+
+  if (!providers) {
+    return <div>Error loading providers</div>
+  }
+
   return (
     <div>
       <h1>Sign in</h1>
-      {providersList.map((provider) => (
+      {Object.values(providers).map((provider) => (
         <div key={provider.name}>
-          <SignInButton provider={provider} />
+          <button onClick={() => signIn(provider.id)}>Sign in with {provider.name}</button>
         </div>
       ))}
     </div>
