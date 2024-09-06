@@ -3,13 +3,13 @@ import SignInButton from '@/app/components/SignInButton'
 
 export default async function SignIn() {
   const providers = await getProviders()
-
+  const providersList = providers ? Object.values(providers) : []
   return (
     <div>
       <h1>Sign in</h1>
-      {Object.values(providers).map((provider) => (
+      {providersList.map((provider) => (
         <div key={provider.name}>
-          <SignInButton />
+          <SignInButton provider={provider} />
         </div>
       ))}
     </div>

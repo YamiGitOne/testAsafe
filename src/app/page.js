@@ -10,10 +10,12 @@ import Hero from "./components/Hero"
 
 export default async function Home() {
   try {
-    const dataTable = await fetchData(process.env.NEXT_PUBLIC_API_URL || 'https://jsonplaceholder.typicode.com/users')
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://jsonplaceholder.typicode.com/users'
+    
+    const dataTable = await fetchData(apiUrl)
     
     const res = await fetch('https://randomuser.me/api/?results=10')
-    if (!res.ok) throw new Error('Error fetching data')
+    if (!res.ok) throw new Error('Error fetching data from randomuser.me')
     
     const result = await res.json()
     const data = result.results.map(user => user.dob.age)
