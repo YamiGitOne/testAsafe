@@ -9,10 +9,14 @@ import Header from "./components/Header"
 import Hero from "./components/Hero"
 
 export default async function Home() {
-  const dataTable = await fetchData('https://jsonplaceholder.typicode.com/users')
-  const res = await fetch('https://randomuser.me/api/?results=10');
-  const result = await res.json();
-  const data = result.results.map(user => user.dob.age);
+  try {
+    const dataTable = await fetchData(process.env.NEXT_PUBLIC_API_URL || 'https://jsonplaceholder.typicode.com/users')
+    
+    const res = await fetch('https://randomuser.me/api/?results=10')
+    if (!res.ok) throw new Error('Error fetching data')
+    
+    const result = await res.json()
+    const data = result.results.map(user => user.dob.age)
 
   return (
     <>
@@ -42,4 +46,8 @@ export default async function Home() {
     </div>
     </>
   )
+} catch (error) {
+  console.error('Error loading data:', error)
+  return <div>Error loading data</div>
+}
 }
