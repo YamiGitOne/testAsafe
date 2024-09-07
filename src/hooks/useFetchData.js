@@ -1,9 +1,12 @@
-export async function fetchData(url) {
-    const res = await fetch(url);
-    if (!res.ok) {
-      throw new Error('Failed to fetch data');
+export async function fetchData(apiUrl) {
+  try {
+    const response = await fetch(apiUrl)
+    if (!response.ok) {
+      throw new Error(`Error fetching data: ${response.statusText}`)
     }
-    return res.json();
+    return await response.json()
+  } catch (error) {
+    console.error('Error fetching data:', error)
+    throw error
   }
-  
-  
+}
