@@ -1,6 +1,7 @@
 
+'use client'
 import BarChart from "./components/BarChart"
-import { fetchData } from '../hooks/useFtchData'
+import { fetchData } from '../hooks/useFetchData'
 import LineChart from "./components/LineChart"
 import Title from "./components/Title"
 import "./global.css"

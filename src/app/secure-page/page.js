@@ -1,24 +1,27 @@
-'use client'
-import { useSession, signIn } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
+import { getServerSession } from 'next-auth'
+import { authOptions } from '../api/auth/[...nextauth]/route'
+import Title from '../components/Title'
+import SignInButton from '../components/SignInButton'
 
-export default function SecurePage() {
-  const { data: session, status } = useSession();
-  const router = useRouter();
-
-  if (status === 'loading') {
-    return <p>Loading...</p>;
-  }
+export default async function ProtectedPage() {
+  const session = await getServerSession(authOptions)
 
   if (!session) {
-    router.push('/api/auth/signin');
-    return null;
+    return (
+      <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
+        <Title text="Acceso denegado"/>
+        <p className="text-center md:tracking-wider mb-8 text-lg md:text-lg lg:text-2xl">
+        Debes iniciar sesión para ver esta página.
+        </p>
+        <SignInButton />
+      </div>
+    )
   }
 
   return (
     <div>
-      <h1>Hola, {session.user.name}!</h1>
-      <p>Esta es una página protegida.</p>
+      <h1>Página protegida</h1>
+      <p>Bienvenido, {session.user.name}!</p>
     </div>
-  );
+  )
 }
