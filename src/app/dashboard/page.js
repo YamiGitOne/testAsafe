@@ -1,5 +1,5 @@
 import { getServerSession } from 'next-auth'
-import { authOptions } from '../api/auth/[...nextauth].js/route'
+import authOptions from '../api/auth/[...nextauth]/authOptions'
 import Title from '../../components/Title'
 import SignInButton from '../../components/SignInButton'
 
