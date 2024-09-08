@@ -7,18 +7,20 @@ import Title from "../components/Title"
 import DataTable from "../components/DataTable"
 import Header from "../components/Header"
 import Hero from "../components/Hero"
+import SessionComponent from "@/components/SessionComponent"
 
 export default async function Home() {
   try {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://jsonplaceholder.typicode.com/users'
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://jsonplaceholder.typicode.com/users';
+    const randomUserApiUrl = process.env.RANDOM_USER_API_URL || 'https://randomuser.me/api/?results=10';
     
-    const dataTable = await fetchData(apiUrl)
+    const dataTable = await fetchData(apiUrl);
     
-    const res = await fetch('https://randomuser.me/api/?results=10')
-    if (!res.ok) throw new Error('Error fetching data from randomuser.me')
+    const res = await fetch(randomUserApiUrl);
+    if (!res.ok) throw new Error('Error fetching data from randomuser.me');
     
-    const result = await res.json()
-    const data = result.results.map(user => user.dob.age)
+    const result = await res.json();
+    const data = result.results.map(user => user.dob.age);
 
   return (
     <>
@@ -26,6 +28,7 @@ export default async function Home() {
     <Hero />
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+        <SessionComponent />
         <div className="w-full max-w-4xl p-12 border shadow-md rounded-lg">
           <Title text="Gráfico de Barras"/>
           <BarChart data={data} />
