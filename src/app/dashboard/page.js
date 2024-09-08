@@ -1,7 +1,7 @@
 import { getServerSession } from 'next-auth'
-import { authOptions } from '../api/auth/[...nextauth]/route'
-import Title from '../components/Title'
-import SignInButton from '../components/SignInButton'
+import { authOptions } from '../api/auth/[...nextauth].js/route'
+import Title from '../../components/Title'
+import SignInButton from '../../components/SignInButton'
 
 export default async function ProtectedPage() {
   const session = await getServerSession(authOptions)

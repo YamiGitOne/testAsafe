@@ -1,12 +1,12 @@
 
-import BarChart from "./components/BarChart"
+import "./globals.css"
+import BarChart from "../components/BarChart"
 import { fetchData } from '../hooks/useFetchData'
-import LineChart from "./components/LineChart"
-import Title from "./components/Title"
-import "./global.css"
-import DataTable from "./components/DataTable"
-import Header from "./components/Header"
-import Hero from "./components/Hero"
+import LineChart from "../components/LineChart"
+import Title from "../components/Title"
+import DataTable from "../components/DataTable"
+import Header from "../components/Header"
+import Hero from "../components/Hero"
 
 export default async function Home() {
   try {

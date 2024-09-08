@@ -1,18 +1,30 @@
 import NextAuth from 'next-auth'
-import GoogleProvider from 'next-auth/providers/google'
+import { authOptions } from './authOptions'
 
-const authOptions = {
-  providers: [
-    GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    }),
-  ],
-  secret: process.env.NEXTAUTH_SECRET,
-  pages: {
-    signIn: '/auth/signin',
-  },
+export const GET = async (req) => {
+  try {
+    console.log('GET request received');
+    const response = await NextAuth(req, authOptions);
+    return new Response(JSON.stringify(response), {
+      status: 200,
+      headers: { 'Content-Type': 'application/json' },
+    });
+  } catch (error) {
+    console.error('Error handling GET request:', error);
+    return new Response('Internal Server Error', { status: 500 });
+  }
 }
 
-export { authOptions }
-export default NextAuth(authOptions)
+export const POST = async (req) => {
+  try {
+    console.log('POST request received');
+    const response = await NextAuth(req, authOptions);
+    return new Response(JSON.stringify(response), {
+      status: 200,
+      headers: { 'Content-Type': 'application/json' },
+    });
+  } catch (error) {
+    console.error('Error handling POST request:', error);
+    return new Response('Internal Server Error', { status: 500 });
+  }
+}
