@@ -4,7 +4,7 @@ import Image from "next/image"
 export default function Header(){
 
     return(
-<header className="bg-slate-500 dark:text-white h-24">
+<header className="bg-slate-500 dark:text-white lg:h-24 h-auto">
       <div className="container mx-auto h-full flex items-center">
         <div className="flex-grow">
         <div className="text-center">
