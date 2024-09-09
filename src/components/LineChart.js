@@ -7,7 +7,7 @@ const LineChart = ({ data }) => {
   const chartRef = useRef(null)
 
   useEffect(() => {
-    const width = 600
+    const width = 700
     const height = 250
     const margin = { top: 20, right: 20, bottom: 30, left: 40 }
 

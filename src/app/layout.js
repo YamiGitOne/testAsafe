@@ -1,5 +1,6 @@
 import "./globals.css"
 import SessionLayout from '../../SessionLayout'
+import ThemeSwitcher from "@/components/ThemeSwitcher"
 
 export const metadata = {
   title: "Asafe project",
@@ -12,6 +13,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <SessionLayout>
+        <ThemeSwitcher />
           <main>{children}</main>
         </SessionLayout>
       </body>

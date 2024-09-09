@@ -1,8 +1,7 @@
-
 const Hero = () => {
   return (
     <div
-      className="pb-20 pt-20 w-full h-[40vh] flex justify-center items-center bg-cover bg-center relative"
+      className="pb-20 pt-20 w-full h-[40vh] flex justify-center items-center bg-cover bg-center relative dark:text-white"
       style={{
         backgroundPosition: "center",
         position: "relative",
@@ -15,13 +14,12 @@ const Hero = () => {
           <div className=" max-w-[89vw] md:max-w-2x lg:max-w-[60vw] flex flex-col items-center justify-center">
             <p className="text-center md:tracking-wider mb-8 text-lg md:text-lg lg:text-2xl">
               Asafe IT
-            </p>
- 
+            </p>       
           </div>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 export default Hero

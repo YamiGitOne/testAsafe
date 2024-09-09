@@ -1,4 +1,4 @@
-'use client';
+'use client'
 
 import { useEffect, useRef, useState } from 'react'
 import * as d3 from 'd3'
@@ -9,7 +9,7 @@ const BarChart = ({ data }) => {
   const [tooltip, setTooltip] = useState({ content: '', position: { x: 0, y: 0 }, visible: false });
 
   useEffect(() => {
-    const width = 600;
+    const width = 800;
     const height = 250;
     d3.select(chartRef.current).selectAll('*').remove();
 
@@ -80,7 +80,7 @@ const BarChart = ({ data }) => {
   }, [data]);
 
   return (
-    <div className="relative">
+    <div className="relative ">
       <svg ref={chartRef}></svg>
       {tooltip.visible && (
         <Tooltip content={tooltip.content} position={tooltip.position} />

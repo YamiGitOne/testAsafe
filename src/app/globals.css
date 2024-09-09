@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+    --color-primary: #3490dc;
+    --color-secondary: #ffed4a;
+  }
+  
+  .theme-dark {
+    --color-primary: #1a202c;
+    --color-secondary: #2d3748;
+  }
+  
+  .theme-light {
+    --color-primary: #f7fafc;
+    --color-secondary: #edf2f7;
+  }
