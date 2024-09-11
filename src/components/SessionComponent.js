@@ -22,7 +22,7 @@ export default function SessionComponent() {
   }
 
   return (
-    <div className="lg:flex items-center space-x-2 flex-col lg:text-sm text-xs">
+    <div className="lg:flex items-start space-x-2 lg:text-sm text-xs">
       <FaUser className="text-sm text-white" />
       <span className='text-md text-white'>No haz iniciado sesión</span>
       <button

@@ -1,8 +1,13 @@
 module.exports = {
+  mode: 'jit',
   content: [
     './src/**/*.{js,ts,jsx,tsx}',
   ],
   darkMode: 'class', 
+  purge: [
+    './public/**/*.html',
+    './src/**/*.{js,jsx,ts,tsx,vue}',
+  ],
   theme: {
     extend: {
       fontFamily: {

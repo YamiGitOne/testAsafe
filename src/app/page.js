@@ -26,7 +26,7 @@ export default async function Home() {
     <Header />
     <Hero />
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen pl-4 pr-4 pb-20 gap-16">
-    <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+    <main className="flex flex-col gap-8 row-start-2 items-center">
       
       <div className="lg:w-full w-fit lg:p-12 p-4 border shadow-md rounded-lg dark:bg-gray-200">
         <Title text="Edad de los participantes"/>

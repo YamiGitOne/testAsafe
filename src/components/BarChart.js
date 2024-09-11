@@ -9,8 +9,8 @@ const BarChart = ({ data }) => {
   const [tooltip, setTooltip] = useState({ content: '', position: { x: 0, y: 0 }, visible: false });
 
   useEffect(() => {
-    const width = 800;
-    const height = 250;
+    const width = 850;
+    const height = 350;
     d3.select(chartRef.current).selectAll('*').remove();
 
     const svg = d3.select(chartRef.current)
